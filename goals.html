@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EdAthena Business Planning</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Tab switching styles */
+        .hidden { display: none; }
+    </style>
+</head>
+<body class="bg-gradient-to-r from-gray-100 to-blue-100 min-h-screen">
+    <!-- Tab Navigation -->
+    <div class="container mx-auto mt-10">
+        <div class="tabs flex justify-center mb-6">
+            <button onclick="openTab('goals')" class="tab-button bg-gradient-to-r from-blue-500 to-green-400 text-white py-2 px-4 rounded-t-lg focus:outline-none hover:shadow-lg transition ease-in-out duration-200">Goals and Objectives</button>
+            <button onclick="openTab('swot')" class="tab-button bg-gradient-to-r from-blue-500 to-green-400 text-white py-2 px-4 rounded-t-lg focus:outline-none hover:shadow-lg transition ease-in-out duration-200 ml-2">SWOT Analysis</button>
+            <button onclick="openTab('usp')" class="tab-button bg-gradient-to-r from-blue-500 to-green-400 text-white py-2 px-4 rounded-t-lg focus:outline-none hover:shadow-lg transition ease-in-out duration-200 ml-2">USP</button>
+            <button onclick="openTab('audience')" class="tab-button bg-gradient-to-r from-blue-500 to-green-400 text-white py-2 px-4 rounded-t-lg focus:outline-none hover:shadow-lg transition ease-in-out duration-200 ml-2">Audience</button>
+            <button onclick="openTab('risk')" class="tab-button bg-gradient-to-r from-blue-500 to-green-400 text-white py-2 px-4 rounded-t-lg focus:outline-none hover:shadow-lg transition ease-in-out duration-200 ml-2">Risk Assessment</button>
+        </div>
+
+        <!-- Goals and Objectives Section -->
+        <div id="goals" class="tab-content p-6 bg-white rounded-lg shadow-lg">
+            <h2 class="text-2xl font-bold mb-4 text-blue-600">Goals and Objectives</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="text-xl font-semibold mb-2 text-green-600">Short-term Goals:</h3>
+                    <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                        <li>Launch and promote AI and Data Science-related courses through EdAthena.</li>
+                        <li>Highlight the innovative capabilities of Qual.AI.</li>
+                        <li>Showcase EcoLearn.AI for affordable education with a clear path to employment.</li>
+                        <li>Enroll 500 students and secure partnerships with institutions for Qual.AI and EcoLearn.AI.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-2 text-green-600">Long-term Goals:</h3>
+                    <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                        <li>Position EdAthena as the leading provider of AI and Data Science education in India.</li>
+                        <li>Expand EdAthena and EcoLearn.AI internationally.</li>
+                        <li>Ensure Synergy.AI and Qual.AI become tools for collaboration between academia and industry.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- SWOT Analysis Section -->
+        <div id="swot" class="tab-content hidden p-6 bg-white rounded-lg shadow-lg">
+            <h2 class="text-2xl font-bold mb-4 text-blue-600">SWOT Analysis</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="text-xl font-semibold mb-2 text-green-600">Strengths:</h3>
+                    <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                        <li>Expertise in AI and Data Science with Qual.AI.</li>
+                        <li>EcoLearn.AI offers affordable, accessible education linked to employment.</li>
+                        <li>Strong alignment with industry needs for employment-focused learning.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-2 text-green-600">Weaknesses:</h3>
+                    <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                        <li>Limited brand awareness and marketing resources.</li>
+                        <li>Small team size affecting the ability to scale.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-2 text-green-600">Opportunities:</h3>
+                    <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                        <li>Growing demand for AI and Data Science education.</li>
+                        <li>Collaboration with institutions for real-world AI projects via EcoLearn.AI.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-2 text-green-600">Threats:</h3>
+                    <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                        <li>Increasing competition from established platforms.</li>
+                        <li>Rapid advancements in technology requiring continuous updates.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- USP Section -->
+        <div id="usp" class="tab-content hidden p-6 bg-white rounded-lg shadow-lg">
+            <h2 class="text-2xl font-bold mb-4 text-blue-600">Unique Selling Point (USP)</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-green-100 p-6 rounded-lg shadow-md hover:shadow-lg transition duration-200 ease-in-out">
+                    <h3 class="text-xl font-semibold mb-2 text-green-800">For EdAthena:</h3>
+                    <ul class="list-disc pl-6 text-gray-700">
+                        <li>Offering accessible, affordable AI and Data Science courses.</li>
+                        <li>Integration with Qual.AI and EcoLearn.AI for personalized learning and employability.</li>
+                    </ul>
+                </div>
+                <div class="bg-green-100 p-6 rounded-lg shadow-md hover:shadow-lg transition duration-200 ease-in-out">
+                    <h3 class="text-xl font-semibold mb-2 text-green-800">For Qual.AI:</h3>
+                    <ul class="list-disc pl-6 text-gray-700">
+                        <li>First AI-powered Adaptive Learning Management System.</li>
+                        <li>Personalizes learning based on student performance.</li>
+                    </ul>
+                </div>
+                <div class="bg-green-100 p-6 rounded-lg shadow-md hover:shadow-lg transition duration-200 ease-in-out">
+                    <h3 class="text-xl font-semibold mb-2 text-green-800">For EcoLearn.AI:</h3>
+                    <ul class="list-disc pl-6 text-gray-700">
+                        <li>Provides affordable education with a path to real-world employment.</li>
+                        <li>Focus on employability and bridging the gap between education and job readiness.</li>
+                    </ul>
+                </div>
+                <div class="bg-green-100 p-6 rounded-lg shadow-md hover:shadow-lg transition duration-200 ease-in-out">
+                    <h3 class="text-xl font-semibold mb-2 text-green-800">For Synergy.AI:</h3>
+                    <ul class="list-disc pl-6 text-gray-700">
+                        <li>Acts as a company interaction tool to bridge the industry-academia gap.</li>
+                        <li>Facilitates collaboration for real-world projects between businesses and students.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Audience Segment Analysis Section -->
+        <div id="audience" class="tab-content hidden p-6 bg-white rounded-lg shadow-lg">
+            <h2 class="text-2xl font-bold mb-4 text-blue-600">Audience Segment Analysis</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="text-xl font-semibold mb-2 text-green-600">College Students:</h3>
+                    <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                        <li>Seeking real-world AI and Data Science skills via Qual.AI and EcoLearn.AI.</li>
+                        <li>Interested in affordable education linked to job opportunities.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-2 text-green-600">Working Professionals:</h3>
+                    <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                        <li>Looking to transition or upskill in AI and Data Science.</li>
+                        <li>Tailored courses for upskilling through EcoLearn.AI.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-2 text-green-600">Educational Institutions:</h3>
+                    <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                        <li>Interested in integrating Qual.AI for adaptive learning solutions.</li>
+                        <li>Improve employability rates with EcoLearn.AI.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-2 text-green-600">AI & Data Science Enthusiasts:</h3>
+                    <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                        <li>Eager to stay updated with trends and personalized learning via Qual.AI.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Risk Assessment Section -->
+        <div id="risk" class="tab-content hidden p-6 bg-white rounded-lg shadow-lg">
+            <h2 class="text-2xl font-bold mb-4 text-blue-600">Risk Assessment</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="text-xl font-semibold mb-2 text-green-600">Financial Risks:</h3>
+                    <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                        <li>Initial investment in promoting EcoLearn.AI may take time to yield returns.</li>
+                        <li>Cash flow challenges in scaling both Qual.AI and EcoLearn.AI.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-2 text-green-600">Operational Risks:</h3>
+                    <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                        <li>Scaling both platforms to accommodate user growth may present challenges.</li>
+                        <li>Ensuring the curriculum stays relevant to industry needs.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-2 text-green-600">Market Risks:</h3>
+                    <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                        <li>Competitors may offer similar pathways to employment, challenging EcoLearn.AI’s position.</li>
+                        <li>Rapid pace of technological advancements in AI and Data Science.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-2 text-green-600">Legal/Compliance Risks:</h3>
+                    <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                        <li>Compliance with data privacy regulations for adaptive learning and employment pathways.</li>
+                        <li>Potential intellectual property issues related to adaptive learning technology.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for Tabs -->
+    <script>
+        function openTab(tabId) {
+            var tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(function (tab) {
+                tab.classList.add('hidden');
+            });
+            document.getElementById(tabId).classList.remove('hidden');
+        }
+    </script>
+
+</body>
+</html>
