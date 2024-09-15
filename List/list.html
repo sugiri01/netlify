@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employees List</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+    <div class="max-w-6xl mx-auto mt-10">
+        <!-- Material Tailwind link -->
+        <div class="block mb-4 mx-auto border-b border-slate-300 pb-2 max-w-[360px] text-center">
+            <a target='_blank' href='https://www.material-tailwind.com/docs/html/table' class='block w-full px-4 py-2 text-center text-slate-700 transition-all '>
+                More components on <b>Material Tailwind</b>.
+            </a>
+        </div>
+
+        <!-- Employee List Card -->
+        <div class="relative flex flex-col w-full h-full text-slate-700 bg-white shadow-md rounded-xl bg-clip-border">
+            <div class="relative mx-4 mt-4 text-slate-700 bg-white rounded-none bg-clip-border">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h3 class="text-lg font-semibold text-slate-800">Employees List</h3>
+                        <p class="text-slate-500">Review each person before edit</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <button
+                            class="rounded border border-slate-300 py-2.5 px-3 text-center text-xs font-semibold text-slate-600 transition-all hover:opacity-75 focus:ring focus:ring-slate-300 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
+                            View All
+                        </button>
+                        <button
+                            class="flex items-center gap-2 rounded bg-slate-800 py-2.5 px-4 text-xs font-semibold text-white shadow-md shadow-slate-900/10 transition-all hover:shadow-lg hover:shadow-slate-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="w-4 h-4">
+                                <path d="M6.25 6.375a4.125 4.125 0 118.25 0 4.125 4.125 0 01-8.25 0zM3.25 19.125a7.125 7.125 0 0114.25 0v.003l-.001.119a.75.75 0 01-.363.63 13.067 13.067 0 01-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 01-.364-.63l-.001-.122zM19.75 7.5a.75.75 0 00-1.5 0v2.25H16a.75.75 0 000 1.5h2.25v2.25a.75.75 0 001.5 0v-2.25H22a.75.75 0 000-1.5h-2.25V7.5z"></path>
+                            </svg>
+                            Add member
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Table -->
+            <div class="p-0 overflow-auto">
+                <table class="w-full mt-4 text-left table-auto min-w-max">
+                    <thead>
+                        <tr>
+                            <th class="p-4 border-y border-slate-200 bg-slate-50 hover:bg-slate-100">
+                                <p class="flex items-center gap-2 text-sm font-normal text-slate-500">Member</p>
+                            </th>
+                            <th class="p-4 border-y border-slate-200 bg-slate-50 hover:bg-slate-100">
+                                <p class="flex items-center gap-2 text-sm font-normal text-slate-500">Function</p>
+                            </th>
+                            <th class="p-4 border-y border-slate-200 bg-slate-50 hover:bg-slate-100">
+                                <p class="flex items-center gap-2 text-sm font-normal text-slate-500">Status</p>
+                            </th>
+                            <th class="p-4 border-y border-slate-200 bg-slate-50 hover:bg-slate-100">
+                                <p class="flex items-center gap-2 text-sm font-normal text-slate-500">Employed</p>
+                            </th>
+                            <th class="p-4 border-y border-slate-200 bg-slate-50 hover:bg-slate-100"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Row 1 -->
+                        <tr>
+                            <td class="p-4 border-b border-slate-200">
+                                <div class="flex items-center gap-3">
+                                    <img src="https://demos.creative-tim.com/test/corporate-ui-dashboard/assets/img/team-3.jpg" alt="John Michael" class="inline-block h-9 w-9 rounded-full object-cover" />
+                                    <div class="flex flex-col">
+                                        <p class="text-sm font-semibold text-slate-700">John Michael</p>
+                                        <p class="text-sm text-slate-500">john@creative-tim.com</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="p-4 border-b border-slate-200">
+                                <div class="flex flex-col">
+                                    <p class="text-sm font-semibold text-slate-700">Manager</p>
+                                    <p class="text-sm text-slate-500">Organization</p>
+                                </div>
+                            </td>
+                            <td class="p-4 border-b border-slate-200">
+                                <div class="w-max">
+                                    <span class="px-2 py-1 text-xs font-bold text-green-700 uppercase bg-green-100 rounded">ONLINE</span>
+                                </div>
+                            </td>
+                            <td class="p-4 border-b border-slate-200">
+                                <p class="text-sm text-slate-500">23/04/18</p>
+                            </td>
+                            <td class="p-4 border-b border-slate-200">
+                                <button class="h-10 w-10 rounded-lg text-slate-900 transition hover:bg-slate-200">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                                        <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32L19.513 8.2z"></path>
+                                    </svg>
+                                </button>
+                            </td>
+                        </tr>
+
+                        <!-- Row 2 -->
+                        <tr>
+                            <td class="p-4 border-b border-slate-200">
+                                <div class="flex items-center gap-3">
+                                    <img src="https://demos.creative-tim.com/test/corporate-ui-dashboard/assets/img/team-2.jpg" alt="Alexa Liras" class="inline-block h-9 w-9 rounded-full object-cover" />
+                                    <div class="flex flex-col">
+                                        <p class="text-sm font-semibold text-slate-700">Alexa Liras</p>
+                                        <p class="text-sm text-slate-500">alexa@creative-tim.com</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="p-4 border-b border-slate-200">
+                                <div class="flex flex-col">
+                                    <p class="text-sm font-semibold text-slate-700">Designer</p>
+                                    <p class="text-sm text-slate-500">Marketing</p>
+                                </div>
+                            </td>
+                            <td class="p-4 border-b border-slate-200">
+                                <div class="w-max">
+                                    <span class="px-2 py-1 text-xs font-bold text-gray-700 uppercase bg-gray-100 rounded">OFFLINE</span>
+                                </div>
+                            </td>
+                            <td class="p-4 border-b border-slate-200">
+                                <p class="text-sm text-slate-500">23/04/18</p>
+                            </td>
+                            <td class="p-4 border-b border-slate-200">
+                                <button class="h-10 w-10 rounded-lg text-slate-900 transition hover:bg-slate-200">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                                        <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32L19.513 8.2z"></path>
+                                    </svg>
+                                </button>
+                            </td>
+                        </tr>
+
+                        <!-- More Rows as needed -->
+
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Pagination -->
+            <div class="flex items-center justify-between p-3">
+                <p class="block text-sm text-slate-500">Page 1 of 10</p>
+                <div class="flex gap-1">
+                    <button
+                        class="rounded border border-slate-300 py-2.5 px-3 text-center text-xs font-semibold text-slate-600 transition-all hover:opacity-75 focus:ring focus:ring-slate-300 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                        type="button">Previous</button>
+                    <button
+                        class="rounded border border-slate-300 py-2.5 px-3 text-center text-xs font-semibold text-slate-600 transition-all hover:opacity-75 focus:ring focus:ring-slate-300 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                        type="button">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

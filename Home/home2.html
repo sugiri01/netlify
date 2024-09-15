@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Documentation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .gradient-bg {
+      background: linear-gradient(90deg, rgba(242,244,255,1) 0%, rgba(255,255,255,1) 100%);
+    }
+  </style>
+</head>
+<body class="bg-gray-50 font-sans">
+
+  <!-- Main container -->
+  <div class="min-h-screen flex">
+    
+    <!-- Sidebar -->
+    <div class="bg-white w-64 border-r border-gray-200">
+      <div class="p-6">
+        <h1 class="text-xl font-bold text-gray-900">Protocol</h1>
+      </div>
+      <nav class="mt-4 space-y-2">
+        <a href="#" class="block py-2 px-4 text-gray-700 hover:bg-gray-100 rounded-md">Introduction</a>
+        <a href="#" class="block py-2 px-4 text-gray-700 hover:bg-gray-100 rounded-md">Guides</a>
+        <a href="#" class="block py-2 px-4 text-gray-700 hover:bg-gray-100 rounded-md">Resources</a>
+        <a href="#" class="block py-2 px-4 text-gray-700 hover:bg-gray-100 rounded-md">Quickstart</a>
+        <a href="#" class="block py-2 px-4 text-gray-700 hover:bg-gray-100 rounded-md">SDKs</a>
+        <a href="#" class="block py-2 px-4 text-gray-700 hover:bg-gray-100 rounded-md">Authentication</a>
+        <a href="#" class="block py-2 px-4 text-gray-700 hover:bg-gray-100 rounded-md">Pagination</a>
+        <a href="#" class="block py-2 px-4 text-gray-700 hover:bg-gray-100 rounded-md">Errors</a>
+        <a href="#" class="block py-2 px-4 text-gray-700 hover:bg-gray-100 rounded-md">Webhooks</a>
+      </nav>
+    </div>
+    
+    <!-- Main content -->
+    <div class="flex-1 p-10">
+      <!-- Header -->
+      <div class="mb-8">
+        <h2 class="text-4xl font-semibold text-gray-800">API Documentation</h2>
+        <p class="text-gray-500 mt-2">Use the Protocol API to access contacts, conversations, group messages, and more. Seamlessly integrate your product into the workflows of Protocol users.</p>
+      </div>
+      
+      <!-- Quickstart buttons -->
+      <div class="mb-8 space-x-4">
+        <button class="px-6 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-500 shadow-md">Quickstart</button>
+        <button class="px-6 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 shadow-md">Explore SDKs</button>
+      </div>
+
+      <!-- Gradient banner -->
+      <div class="mb-8 gradient-bg p-6 rounded-md shadow-lg">
+        <p class="text-xl font-semibold text-gray-800">Getting Started</p>
+        <p class="text-gray-600 mt-2">To get started, create a new application in your developer settings, then read how to make requests for the resources you need using our HTTP APIs or dedicated client SDKs.</p>
+        <a href="#" class="text-indigo-600 mt-4 inline-block font-medium">Get your API key →</a>
+      </div>
+      
+      <!-- Guides section -->
+      <section class="mb-12">
+        <h3 class="text-2xl font-semibold text-gray-800 mb-6">Guides</h3>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div class="bg-white p-6 border border-gray-200 rounded-lg shadow-md">
+            <h4 class="font-medium text-gray-800 mb-2">Authentication</h4>
+            <p class="text-gray-500">Learn how to authenticate your API requests.</p>
+            <a href="#" class="text-indigo-600 mt-4 block font-medium">Read more &rarr;</a>
+          </div>
+          <div class="bg-white p-6 border border-gray-200 rounded-lg shadow-md">
+            <h4 class="font-medium text-gray-800 mb-2">Pagination</h4>
+            <p class="text-gray-500">Understand how to work with paginated responses.</p>
+            <a href="#" class="text-indigo-600 mt-4 block font-medium">Read more &rarr;</a>
+          </div>
+          <div class="bg-white p-6 border border-gray-200 rounded-lg shadow-md">
+            <h4 class="font-medium text-gray-800 mb-2">Errors</h4>
+            <p class="text-gray-500">Read about the different types of errors returned by the API.</p>
+            <a href="#" class="text-indigo-600 mt-4 block font-medium">Read more &rarr;</a>
+          </div>
+          <div class="bg-white p-6 border border-gray-200 rounded-lg shadow-md">
+            <h4 class="font-medium text-gray-800 mb-2">Webhooks</h4>
+            <p class="text-gray-500">Learn how to programmatically configure webhooks for your app.</p>
+            <a href="#" class="text-indigo-600 mt-4 block font-medium">Read more &rarr;</a>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Resources section -->
+      <section>
+        <h3 class="text-2xl font-semibold text-gray-800 mb-6">Resources</h3>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div class="bg-white p-6 border border-gray-200 rounded-lg shadow-md">
+            <h4 class="font-medium text-gray-800 mb-2">Contacts</h4>
+            <p class="text-gray-500">Learn about the contact model and how to create, retrieve, update, delete, and list contacts.</p>
+          </div>
+          <div class="bg-white p-6 border border-gray-200 rounded-lg shadow-md">
+            <h4 class="font-medium text-gray-800 mb-2">Conversations</h4>
+            <p class="text-gray-500">Learn about the conversation model and how to create, retrieve, update, delete, and list conversations.</p>
+          </div>
+          <div class="bg-white p-6 border border-gray-200 rounded-lg shadow-md">
+            <h4 class="font-medium text-gray-800 mb-2">Messages</h4>
+            <p class="text-gray-500">Learn about the message model and how to create, retrieve, update, delete, and list messages.</p>
+          </div>
+          <div class="bg-white p-6 border border-gray-200 rounded-lg shadow-md">
+            <h4 class="font-medium text-gray-800 mb-2">Groups</h4>
+            <p class="text-gray-500">Learn about the group model and how to create, retrieve, update, delete, and list groups.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+</body>
+</html>

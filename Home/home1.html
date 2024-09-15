@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Replica</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <div class="w-64 bg-white shadow-md">
+            <div class="p-4 border-b">
+                <h2 class="text-xl font-semibold">Catalyst</h2>
+            </div>
+            <nav class="mt-4">
+                <a href="#" class="block px-4 py-2 text-gray-600 hover:bg-gray-100"><i class="fas fa-home mr-2"></i> Home</a>
+                <a href="#" class="block px-4 py-2 text-gray-600 hover:bg-gray-100"><i class="fas fa-calendar mr-2"></i> Events</a>
+                <a href="#" class="block px-4 py-2 text-gray-600 hover:bg-gray-100"><i class="fas fa-shopping-cart mr-2"></i> Orders</a>
+                <a href="#" class="block px-4 py-2 text-gray-600 hover:bg-gray-100"><i class="fas fa-cog mr-2"></i> Settings</a>
+            </nav>
+            <div class="mt-8 px-4">
+                <h3 class="text-sm font-semibold text-gray-600 uppercase">Upcoming Events</h3>
+                <ul class="mt-2">
+                    <li class="py-1">Bear Hug: Live in Concert</li>
+                    <li class="py-1">Six Fingers — DJ Set</li>
+                    <li class="py-1">We All Look The Same</li>
+                    <li class="py-1">Viking People</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 overflow-auto">
+            <header class="bg-white shadow">
+                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                    <h1 class="text-3xl font-bold text-gray-900">Good afternoon, Erica</h1>
+                </div>
+            </header>
+            <main class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+                <!-- Overview Section -->
+                <div class="px-4 py-6 sm:px-0">
+                    <h2 class="text-xl font-semibold mb-4">Overview</h2>
+                    <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+                        <div class="bg-white overflow-hidden shadow rounded-lg">
+                            <div class="px-4 py-5 sm:p-6">
+                                <div class="flex items-center">
+                                    <div class="flex-shrink-0 bg-indigo-500 rounded-md p-3">
+                                        <i class="fas fa-dollar-sign text-white"></i>
+                                    </div>
+                                    <div class="ml-5 w-0 flex-1">
+                                        <dl>
+                                            <dt class="text-sm font-medium text-gray-500 truncate">Total revenue</dt>
+                                            <dd class="text-lg font-semibold text-gray-900">$2.6M</dd>
+                                        </dl>
+                                    </div>
+                                </div>
+                                <div class="mt-4">
+                                    <span class="text-green-600 text-sm font-semibold">+4.5% from last week</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Repeat similar structure for other overview cards -->
+                    </div>
+                </div>
+
+                <!-- Recent Orders Section -->
+                <div class="px-4 py-6 sm:px-0">
+                    <h2 class="text-xl font-semibold mb-4">Recent orders</h2>
+                    <div class="flex flex-col">
+                        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                            <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                                <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                                    <table class="min-w-full divide-y divide-gray-200">
+                                        <thead class="bg-gray-50">
+                                            <tr>
+                                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                    Order number
+                                                </th>
+                                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                    Purchase date
+                                                </th>
+                                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                    Customer
+                                                </th>
+                                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                    Event
+                                                </th>
+                                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                    Amount
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="bg-white divide-y divide-gray-200">
+                                            <!-- Sample row, repeat for each order -->
+                                            <tr>
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                                    3000
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                    May 9, 2024
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                    Leslie Alexander
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                    Bear Hug: Live in Concert
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                    US$80.00
+                                                </td>
+                                            </tr>
+                                            <!-- Repeat for other rows -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>
