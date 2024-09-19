@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Note - CRD-SOU-03-September</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        @media print {
+            body {
+                width: 210mm;
+                height: 297mm;
+                margin: 0;
+                padding: 0;
+                -webkit-print-color-adjust: exact;
+            }
+            #creditNote {
+                width: 100% !important;
+                max-width: none !important;
+                margin: 0 !important;
+                padding: 15mm !important;
+                box-shadow: none !important;
+                position: relative;
+                min-height: 100%;
+            }
+            .print-grid {
+                display: grid !important;
+                grid-template-columns: 1fr 1fr !important;
+                gap: 3mm !important;
+            }
+            .print-full-width {
+                grid-column: 1 / -1 !important;
+            }
+            .no-break {
+                page-break-inside: avoid;
+            }
+            #downloadBtn {
+                display: none;
+            }
+            .signature-section {
+                position: absolute;
+                bottom: 15mm;
+                right: 15mm;
+            }
+        }
+        .grid-cols-print-4 {
+            grid-template-columns: repeat(4, 1fr);
+        }
+        .signature-section {
+            margin-top: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-4">
+    <div id="creditNote" class="max-w-3xl mx-auto bg-white shadow-lg rounded-lg p-4">
+        <!-- Header Section -->
+        <div class="flex justify-between items-center mb-4">
+            <img src="H:/2024 Downloads/Argent Logo.png" alt="Argent Logo" class="h-12">
+            <div class="text-right">
+                <h2 class="text-xl font-bold text-gray-700">Credit Note</h2>
+                <p class="text-gray-600">CRD-SOU-03</p>
+            </div>
+        </div>
+
+        <!-- Company Information Section -->
+        <div class="print-grid mb-4">
+            <div class="bg-gray-200 p-3 rounded shadow-sm no-break text-sm">
+                <p class="font-semibold">GST No: 33CSGPS6143A1ZZ</p>
+                <p>Argent Jobs,</p>
+                <p>Hygee Workspace, No. 583/2 School Road, Anna Nagar West Extension, Chennai, Tamil Nadu 600101</p>
+                <p>Ph: 9150977356, 9840555070</p>
+            </div>
+            <div class="bg-gray-200 p-3 rounded shadow-sm no-break text-sm">
+                <p class="font-semibold">Billed To:</p>
+                <p>Teamlease Services Ltd,</p>
+                <p>315 Work Avenue Campus, No.77, Ascent Building, Koramangala Industrial Layout, Jyothi Nivas College Rd, Koramangala, Bangalore -560095 Karnataka, India</p>
+            </div>
+        </div>
+
+        <!-- Invoice Information Section -->
+        <div class="grid grid-cols-1 md:grid-cols-print-4 gap-3 mb-4">
+            <div class="bg-gray-200 p-2 rounded shadow-sm no-break text-sm">
+                <p><span class="font-semibold">Credit Note:</span> CRD-SOU-03</p>
+            </div>
+            <div class="bg-gray-200 p-2 rounded shadow-sm no-break text-sm">
+                <p><span class="font-semibold">Date:</span> 19-09-2024</p>
+            </div>
+            <div class="bg-gray-200 p-2 rounded shadow-sm no-break text-sm">
+                <p><span class="font-semibold">Buyer's GSTIN:</span> 29AABCT5458K1ZT</p>
+            </div>
+            <div class="bg-gray-200 p-2 rounded shadow-sm no-break text-sm">
+                <p><span class="font-semibold">Invoice Number (Credit Note):</span> INV-SOU-015</p>
+            </div>
+        </div>
+
+        <!-- Particulars and Amount Section -->
+        <div class="bg-gray-200 p-3 rounded shadow-sm mb-4 no-break print-full-width">
+            <table class="w-full border-collapse text-sm">
+                <thead>
+                    <tr class="bg-gray-300">
+                        <th class="border py-1 px-2 text-left">Particulars</th>
+                        <th class="border py-1 px-2 text-right">Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="border py-1 px-2">Base Amount</td>
+                        <td class="border py-1 px-2 text-right">2,693.00</td>
+                    </tr>
+                    <tr>
+                        <td class="border py-1 px-2">IGST (18%)</td>
+                        <td class="border py-1 px-2 text-right">484.74</td>
+                    </tr>
+                    <tr class="font-bold">
+                        <td class="border py-1 px-2">Total Amount</td>
+                        <td class="border py-1 px-2 text-right">3,177.74</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Additional Details Section -->
+        <div class="bg-gray-200 p-3 rounded shadow-sm mb-4 no-break print-full-width text-sm">
+            <p class="mb-2">Total in Words: Indian Rupee Three Thousand One Hundred Seventy-Seven and Seventy-Four Paise Only.</p>
+            <p class="font-semibold">Terms and Conditions:</p>
+            <ol class="list-decimal pl-5">
+                <li>This is a computer-generated Credit Note.</li>
+                <li>Teamlease we will deduct the same amount for the upcoming invoice (Sep-2024).</li>
+            </ol>
+        </div>
+
+        <!-- Signature Section -->
+        <div class="signature-section no-break">
+            <img src="H:/2024 Downloads/argentjobs signature.png" alt="Signature of Argent Jobs Founder" class="h-12 mb-1">
+            <p class="text-sm">Authorized Signature</p>
+        </div>
+    </div>
+
+    <!-- Download Button -->
+    <div class="flex justify-center mt-4">
+        <button id="downloadBtn" class="bg-blue-500 text-white py-2 px-4 rounded" onclick="downloadPDF()">Download as PDF</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script>
+        function downloadPDF() {
+            const element = document.getElementById('creditNote');
+            const opt = {
+                margin: [5, 5, 5, 5],
+                filename: 'CRD-SOU-03-September.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, logging: true, dpi: 192, letterRendering: true },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+            html2pdf().set(opt).from(element).save();
+        }
+    </script>
+</body>
+</html>
