@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Descriptions Portal</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-light: #eef2ff;
+            --secondary: #6b7280;
+            --success: #10b981;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --green-light: #ecfdf5;
+            --orange-light: #fff7ed;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f9fafb;
+            color: var(--gray-800);
+            line-height: 1.6;
+            padding: 2rem;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+        
+        .header {
+            background-color: var(--primary);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .company-logo {
+            margin-bottom: 1.5rem;
+            font-size: 3rem;
+        }
+        
+        .tabs {
+            display: flex;
+            background-color: var(--gray-100);
+            border-bottom: 1px solid var(--gray-200);
+            overflow-x: auto;
+        }
+        
+        .tab {
+            padding: 1rem 1.5rem;
+            color: var(--gray-700);
+            font-weight: 500;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+        
+        .tab:hover {
+            color: var(--primary);
+            background-color: rgba(79, 70, 229, 0.05);
+        }
+        
+        .tab.active {
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+        }
+        
+        .tab-icon {
+            margin-right: 0.5rem;
+        }
+        
+        .content {
+            padding: 2rem;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .section {
+            margin-bottom: 2rem;
+        }
+        
+        .section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .section-title {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--gray-200);
+        }
+        
+        .section-title i {
+            margin-right: 0.75rem;
+            width: 30px;
+            text-align: center;
+        }
+        
+        .section-content {
+            padding-left: 2.5rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        ul, ol {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .highlight {
+            background-color: var(--primary-light);
+            color: var(--primary);
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-weight: 500;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .card {
+            background-color: var(--gray-100);
+            border-radius: 0.375rem;
+            padding: 1.25rem;
+        }
+        
+        .card-title {
+            display: flex;
+            align-items: center;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--gray-900);
+        }
+        
+        .card-title i {
+            margin-right: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .tag {
+            display: inline-block;
+            background-color: var(--gray-200);
+            color: var(--gray-700);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer {
+            background-color: var(--gray-100);
+            padding: 1.5rem 2rem;
+            text-align: center;
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            border-top: 1px solid var(--gray-200);
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th, td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            border: 1px solid var(--gray-200);
+        }
+        
+        th {
+            background-color: var(--gray-100);
+            font-weight: 600;
+            color: var(--gray-800);
+        }
+        
+        tr:nth-child(even) {
+            background-color: var(--gray-50);
+        }
+        
+        .print-button {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: white;
+            color: var(--primary);
+            border: none;
+            border-radius: 0.25rem;
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            transition: all 0.2s;
+        }
+        
+        .print-button:hover {
+            background-color: var(--primary-light);
+        }
+        
+        .print-button i {
+            margin-right: 0.5rem;
+        }
+        
+        .tab-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+        }
+        
+        .tab-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--gray-900);
+        }
+        
+        .tab-print-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 0.25rem;
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            transition: all 0.2s;
+        }
+        
+        .tab-print-btn:hover {
+            background-color: var(--primary-hover);
+        }
+        
+        .tab-print-btn i {
+            margin-right: 0.5rem;
+        }
+        
+        /* Print Styles */
+        @media print {
+            @page {
+                margin: 1.5cm;
+            }
+            
+            body {
+                background-color: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+                max-width: 100%;
+            }
+            
+            .header {
+                background-color: white !important;
+                color: black;
+                text-align: center;
+                padding: 1rem 0 2rem;
+            }
+            
+            .header h1 {
+                color: var(--primary);
+            }
+            
+            .tabs, .footer, .tab-print-btn, .print-button {
+                display: none !important;
+            }
+            
+            .content {
+                padding: 0;
+            }
+            
+            .tab-content {
+                display: block !important;
+            }
+            
+            .tab-content:not(.print-target) {
+                display: none !important;
+            }
+            
+            .section-title {
+                color: var(--primary);
+            }
+            
+            .card {
+                background-color: white;
+                border: 1px solid var(--gray-200);
+            }
+            
+            .tab-header {
+                margin-bottom: 2rem;
+            }
+            
+            .grid {
+                page-break-inside: avoid;
+            }
+            
+            .section {
+                page-break-inside: avoid;
+                margin-bottom: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .content {
+                padding: 1.5rem;
+            }
+            
+            .section-content {
+                padding-left: 1rem;
+            }
+            
+            .print-button {
+                position: static;
+                margin-top: 1rem;
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="company-logo">
+                <i class="fas fa-building"></i>
+            </div>
+            <h1>Job Descriptions</h1>
+            <p>Detailed role information and responsibilities</p>
+        </header>
+        
+        <div class="tabs">
+            <div class="tab active" onclick="openTab('lms-hr-admin')">
+                <i class="fas fa-graduation-cap tab-icon"></i>
+                LMS & HR Admin
+            </div>
+            <div class="tab" onclick="openTab('telecaller-head')">
+                <i class="fas fa-headset tab-icon"></i>
+                Telecaller Head
+            </div>
+            <div class="tab" onclick="openTab('telecaller')">
+                <i class="fas fa-phone tab-icon"></i>
+                Telecaller
+            </div>
+        </div>
+        
+        <div class="content">
+            <!-- LMS & HR Admin Tab Content -->
+            <div id="lms-hr-admin" class="tab-content active">
+                <div class="tab-header">
+                    <h2 class="tab-title">LMS & HR Administrator</h2>
+                    <button class="tab-print-btn" onclick="printJobDescription('lms-hr-admin')">
+                        <i class="fas fa-print"></i> Print
+                    </button>
+                </div>
+                
+                <section class="section">
+                    <h2 class="section-title">
+                        <i class="fas fa-info-circle"></i>
+                        Overview
+                    </h2>
+                    <div class="section-content">
+                        <p>We are seeking a detail-oriented and organized LMS & HR Administrator to join our team. The ideal candidate will have experience in both Learning Management Systems (LMS) and Human Resources administration, with a strong ability to manage multiple tasks and projects simultaneously. This role serves as a critical bridge between our HR department and training initiatives, ensuring efficient management of employee data, training programs, and organizational development.</p>
+                    </div>
+                </section>
+                
+                <section class="section">
+                    <h2 class="section-title">
+                        <i class="fas fa-tasks"></i>
+                        Key Responsibilities
+                    </h2>
+                    <div class="section-content">
+                        <div class="grid">
+                            <div class="card">
+                                <h3 class="card-title">
+                                    <i class="fas fa-users"></i>
+                                    HR Administration
+                                </h3>
+                                <ul>
+                                    <li>Manage employee records, including hiring documentation, attendance, and leave management</li>
+                                    <li>Support the recruitment process by coordinating job listings, applications, and interviews</li>
+                                    <li>Process payroll and maintain confidential HR documentation</li>
+                                    <li>Ensure compliance with company policies and employment regulations</li>
+                                    <li>Organize employee performance reviews and maintain performance management data</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="card">
+                                <h3 class="card-title">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    LMS Administration
+                                </h3>
+                                <ul>
+                                    <li>Handle the day-to-day administration of the company's learning management system</li>
+                                    <li>Manage course content, create and maintain course catalogs, and set up learning paths</li>
+                                    <li>Organize batches, manage course libraries, and track training completion rates</li>
+                                    <li>Coordinate online events, webinars, and domain expert seminars</li>
+                                    <li>Generate training reports and analyze learning metrics for management review</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <h3 style="margin-top: 1rem; margin-bottom: 0.75rem;">Additional Duties:</h3>
+                        <ul>
+                            <li>Manage document organization systems for both HR and training materials</li>
+                            <li>Maintain confidentiality of sensitive employee and company information</li>
+                            <li>Coordinate employee recognition programs like "Hack Bees" and "Batch Topers Day"</li>
+                            <li>Assist with planning and executing job fairs and placement initiatives</li>
+                            <li>Collect payments and handle administrative duties related to training programs</li>
+                            <li>Coordinate weekly meetings and assist with meeting documentation</li>
+                            <li>Handle petty cash and related administrative expenses</li>
+                            <li>Provide policy management support and ensure proper implementation</li>
+                        </ul>
+                    </div>
+                </section>
+                
+                <section class="section">
+                    <h2 class="section-title">
+                        <i class="fas fa-user-check"></i>
+                        Qualifications & Skills
+                    </h2>
+                    <div class="section-content">
+                        <div class="grid">
+                            <div>
+                                <h3 style="margin-bottom: 0.75rem;">Required Qualifications:</h3>
+                                <ul>
+                                    <li>Bachelor's degree in Human Resources, Business Administration, or related field</li>
+                                    <li>Minimum 2 years of experience in HR administration</li>
+                                    <li>Experience with learning management systems and e-learning platforms</li>
+                                    <li>Strong organizational and multitasking abilities</li>
+                                    <li>Excellent attention to detail and record-keeping skills</li>
+                                    <li>Proficiency in Microsoft Office Suite (Word, Excel, PowerPoint)</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <h3 style="margin-bottom: 0.75rem;">Desired Skills:</h3>
+                                <ul>
+                                    <li>Knowledge of HR best practices and employment regulations</li>
+                                    <li>Experience with HRIS and payroll systems</li>
+                                    <li>Familiarity with e-learning content development</li>
+                                    <li>Strong written and verbal communication skills</li>
+                                    <li>Problem-solving abilities and initiative</li>
+                                    <li>Event coordination experience</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 1.5rem;">
+                            <h3 style="margin-bottom: 0.75rem;">Technical Skills & Systems:</h3>
+                            <div>
+                                <span class="tag">HRIS Systems</span>
+                                <span class="tag">LMS Platforms</span>
+                                <span class="tag">MS Office</span>
+                                <span class="tag">Database Management</span>
+                                <span class="tag">Document Management</span>
+                                <span class="tag">Basic Web Administration</span>
+                                <span class="tag">Reporting Tools</span>
+                                <span class="tag">Video Conferencing</span>
+                                <span class="tag">Project Management</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="section">
+                    <h2 class="section-title">
+                        <i class="fas fa-file-alt"></i>
+                        Documentation & Systems
+                    </h2>
+                    <div class="section-content">
+                        <p>The LMS & HR Administrator will work with the following documentation and systems:</p>
+                        <ul>
+                            <li><strong>HR Documents:</strong> Hiring books, employee databases, JDs, attendance records, leave management, performance reviews</li>
+                            <li><strong>Company Documentation:</strong> Policy documents, employee handbooks, training materials</li>
+                            <li><strong>LMS Resources:</strong> Course catalogs, training modules, certification tracking</li>
+                            <li><strong>Event Management:</strong> Schedules, attendee lists, feedback forms, certificates</li>
+                        </ul>
+                    </div>
+                </section>
+                
+                <section class="section">
+                    <h2 class="section-title">
+                        <i class="fas fa-chart-line"></i>
+                        Performance Metrics
+                    </h2>
+                    <div class="section-content">
+                        <p>Success in this role will be measured by:</p>
+                        <ul>
+                            <li>Accuracy and timeliness of HR record management</li>
+                            <li>Employee satisfaction with HR services and responsiveness</li>
+                            <li>Successful implementation and administration of training programs</li>
+                            <li>Training completion rates and effectiveness metrics</li>
+                            <li>Efficiency of documentation management systems</li>
+                            <li>Successful execution of events and meetings</li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+            
+            <!-- Telecaller Head Tab Content -->
+            <div id="telecaller-head" class="tab-content">
+                <div class="tab-header">
+                    <h2 class="tab-title">Telecaller Head</h2>
+                    <button class="tab-print-btn" onclick="printJobDescription('telecaller-head')">
+                        <i class="fas fa-print"></i> Print
+                    </button>
+                </div>
+                
+                <section class="section">
+                    <h2 class="section-title">
+                        <i class="fas fa-info-circle"></i>
+                        Overview
+                    </h2>
+                    <div class="section-content">
+                        <p>We are looking for an experienced Telecaller Head to lead our telecalling team. This role involves overseeing telecaller operations, setting targets, training team members, and ensuring optimal performance. The Telecaller Head will be responsible for coordinating with colleges for data collection, working with master class trainers, and managing the overall telecalling process to achieve business objectives.</p>
+                    </div>
+                </section>
+                
+                <section class="section">
+                    <h2 class="section-title">
+                        <i class="fas fa-tasks"></i>
+                        Key Responsibilities
+                    </h2>
+                    <div class="section-content">
+                        <div class="grid">
+                            <div class="card">
+                                <h3 class="card-title">
+                                    <i class="fas fa-bullseye"></i>
+                                    Data & Target Management
+                                </h3>
+                                <ul>
+                                    <li>Identify and organize data sources for targeted telecalling</li>
+                                    <li>Establish connections with colleges and educational institutions for data collection</li>
+                                    <li>Set realistic and achievable targets for individual telecallers</li>
+                                    <li>Monitor and analyze target achievement rates</li>
+                                    <li>Implement strategies to optimize conversion rates</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="card">
+                                <h3 class="card-title">
+                                    <i class="fas fa-chalkboard-teacher"></i>
+                                    Training & Development
+                                </h3>
+                                <ul>
+                                    <li>Coordinate with Master class trainers to align on content and approach</li>
+                                    <li>Develop and deliver 3-day training programs for new telecallers</li>
+                                    <li>Create comprehensive calling scripts and training materials</li>
+                                    <li>Conduct regular refresher training sessions</li>
+                                    <li>Provide one-on-one coaching for performance improvement</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <h3 style="margin-top: 1rem; margin-bottom: 0.75rem;">Additional Duties:</h3>
+                        <ul>
+                            <li>Oversee the complete telecalling process from data acquisition to follow-up</li>
+                            <li>Analyze team performance and create detailed performance reports</li>
+                            <li>Develop strategies to improve conversion rates and customer engagement</li>
+                            <li>Manage the database of prospects and ensure data accuracy</li>
+                            <li>Ensure proper follow-up processes are implemented and maintained</li>
+                            <li>Coordinate between callers and Master class trainers for smooth transitions</li>
+                            <li>Troubleshoot issues that arise during the telecalling process</li>
+                        </ul>
+                    </div>
+                </section>
+                
+                <section class="section">
+                    <h2 class="section-title">
+                        <i class="fas fa-user-check"></i>
+                        Qualifications & Skills
+                    </h2>
+                    <div class="section-content">
+                        <div class="grid">
+                            <div>
+                                <h3 style="margin-bottom: 0.75rem;">Required Qualifications:</h3>
+                                <ul>
+                                    <li>Bachelor's degree in Marketing, Communications, or related field</li>
+                                    <li>Minimum 3-5 years of experience in telecalling operations, with at least 2 years in a supervisory role</li>
+                                    <li>Proven track record of leading successful telecalling campaigns</li>
+                                    <li>Experience in educational or training sector preferred</li>
+                                    <li>Strong understanding of CRM systems and database management</li>
+                                    <li>Excellent verbal and written communication skills</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <h3 style="margin-bottom: 0.75rem;">Desired Skills:</h3>
+                                <ul>
+                                    <li>Team leadership and management experience</li>
+                                    <li>Strong training and development capabilities</li>
+                                    <li>Excellent interpersonal and relationship-building skills</li>
+                                    <li>Analytical thinking and problem-solving abilities</li>
+                                    <li>Goal-oriented with a focus on results</li>
+                                    <li>Experience with educational or training program sales</li>
+                                    <li>Advanced convincing and persuasion techniques</li>
+                                    <li>Strong negotiation skills for closing deals</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 1.5rem;">
+                            <h3 style="margin-bottom: 0.75rem;">Technical Skills & Systems:</h3>
+                            <div>
+                                <span class="tag">CRM Software</span>
+                                <span class="tag">Database Management</span>
+                                <span class="tag">MS Office</span>
+                                <span class="tag">Call Center Tools</span>
+                                <span class="tag">Performance Tracking</span>
+                                <span class="tag">Reporting Tools</span>
+                                <span class="tag">Script Development</span>
+                                <span class="tag">Training Systems</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="section">
+                    <h2 class="section-title">
+                        <i class="fas fa-chart-line"></i>
+                        Performance Metrics
+                    </h2>
+                    <div class="section-content">
+                        <p>Success in this role will be measured by:</p>
+                        <ul>
+                            <li>Team target achievement rates</li>
+                            <li>Quality of data collected and managed</li>
+                            <li>Effectiveness of training programs delivered</li>
+                            <li>Conversion rates from calls to enrollments</li>
+                            <li>Team retention and satisfaction levels</li>
+                            <li>Efficiency of the complete telecalling process</li>
+                            <li>Quality of coordination with Master class trainers</li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+            
+            <!-- Telecaller Tab Content -->
+            <div id="telecaller" class="tab-content">
+                <div class="tab-header">
+                    <h2 class="tab-title">Telecaller</h2>
+                    <button class="tab-print-btn" onclick="printJobDescription('telecaller')">
+                        <i class="fas fa-print"></i> Print
+                    </button>
+                </div>
+                
+                <section class="section">
+                    <h2 class="section-title">
+                        <i class="fas fa-info-circle"></i>
+                        Overview
+                    </h2>
+                    <div class="section-content">
+                        <p>We are seeking motivated and articulate Telecallers to join our team. This role involves making outbound calls to prospective clients, explaining our courses and services, and achieving conversion targets. The ideal candidate will have excellent communication skills, persuasive abilities, and a goal-oriented mindset to succeed in this fast-paced calling environment.</p>
+                    </div>
+                </section>
+                
+                <section class="section">
+                    <h2 class="section-title">
+                        <i class="fas fa-tasks"></i>
+                        Key Responsibilities
+                    </h2>
+                    <div class="section-content">
+                        <div class="grid">
+                            <div class="card">
+                                <h3 class="card-title">
+                                    <i class="fas fa-phone-alt"></i>
+                                    Calling Operations
+                                </h3>
+                                <ul>
+                                    <li>Make outbound calls to potential clients from the provided database</li>
+                                    <li>Follow calling scripts to effectively communicate course benefits</li>
+                                    <li>Answer queries and provide detailed information about courses and pricing</li>
+                                    <li>Record call outcomes and client feedback in the database</li>
+                                    <li>Meet daily and weekly calling targets</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="card">
+                                <h3 class="card-title">
+                                    <i class="fas fa-bullseye"></i>
+                                    Target Achievement
+                                </h3>
+                                <ul>
+                                    <li>Work towards achieving daily, weekly, and monthly conversion targets</li>
+                                    <li>Follow up with interested prospects to maximize conversions</li>
+                                    <li>Guide potential clients through the enrollment process</li>
+                                    <li>Assist clients with payment procedures</li>
+                                    <li>Track personal performance metrics and continuously improve</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <h3 style="margin-top: 1rem; margin-bottom: 0.75rem;">Additional Duties:</h3>
+                        <ul>
+                            <li>Participate in the 5-day training program to learn about products, scripts, and techniques</li>
+                            <li>Keep updated on course offerings, pricing, and promotional activities</li>
+                            <li>Maintain accurate records of all conversations and follow-ups</li>
+                            <li>Provide feedback to improve scripts and calling strategies</li>
+                            <li>Collaborate with team members to share best practices</li>
+                            <li>Attend regular team meetings and performance review sessions</li>
+                        </ul>
+                    </div>
+                </section>
+                
+                <section class="section">
+                    <h2 class="section-title">
+                        <i class="fas fa-user-check"></i>
+                        Qualifications & Skills
+                    </h2>
+                    <div class="section-content">
+                        <div class="grid">
+                            <div>
+                                <h3 style="margin-bottom: 0.75rem;">Required Qualifications:</h3>
+                                <ul>
+                                    <li>High school diploma or equivalent; Bachelor's degree preferred</li>
+                                    <li>Previous experience in telemarketing or customer service is a plus</li>
+                                    <li>Excellent verbal communication skills in required languages</li>
+                                    <li>Basic computer proficiency and familiarity with CRM systems</li>
+                                    <li>Goal-oriented mindset with ability to work under targets</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <h3 style="margin-bottom: 0.75rem;">Desired Skills:</h3>
+                                <ul>
+                                    <li>Strong persuasion and negotiation abilities</li>
+                                    <li>Excellent listening skills and ability to understand client needs</li>
+                                    <li>Resilience and positive attitude in handling rejections</li>
+                                    <li>Ability to learn and retain product information quickly</li>
+                                    <li>Time management and organizational skills</li>
+                                    <li>Experience in educational or training sector</li>
+                                    <li>Self-motivation and ability to work independently</li>
+                                    <li>Comfortable with working in a fast-paced environment</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 1.5rem;">
+                            <h3 style="margin-bottom: 0.75rem;">Technical Skills & Systems:</h3>
+                            <div>
+                                <span class="tag">CRM Software</span>
+                                <span class="tag">MS Office</span>
+                                <span class="tag">Call Tracking Tools</span>
+                                <span class="tag">Basic Data Entry</span>
+                                <span class="tag">Email Communication</span>
+                                <span class="tag">Phone Systems</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="section">
+                    <h2 class="section-title">
+                        <i class="fas fa-chart-line"></i>
+                        Performance Metrics
+                    </h2>
+                    <div class="section-content">
+                        <p>Success in this role will be measured by:</p>
+                        <ul>
+                            <li>Number of daily calls completed</li>
+                            <li>Conversion rate of calls to enrollments</li>
+                            <li>Quality of information collected during calls</li>
+                            <li>Effectiveness of follow-up process</li>
+                            <li>Customer satisfaction with calling experience</li>
+                            <li>Accuracy of data entry in CRM system</li>
+                        </ul>
+                    </div>
+                </section>
+                
+                <section class="section">
+                    <h2 class="section-title">
+                        <i class="fas fa-clipboard-list"></i>
+                        Daily Routine
+                    </h2>
+                    <div class="section-content">
+                        <p>A typical day for a Telecaller includes:</p>
+                        <ul>
+                            <li>Morning briefing and target setting</li>
+                            <li>Review of calling lists and prioritization</li>
+                            <li>Active calling periods (morning and afternoon sessions)</li>
+                            <li>Data entry and follow-up scheduling</li>
+                            <li>End-of-day reporting and next-day planning</li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </div>
+        
+        <footer class="footer">
+            <p>&copy; 2025 EdAthena Pvt Ltd. All rights reserved. Job descriptions are subject to change based on business requirements.</p>
+        </footer>
+    </div>
+    
+    <script>
+        function openTab(tabId) {
+            // Hide all tab contents
+            const tabContents = document.getElementsByClassName('tab-content');
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove('active');
+            }
+            
+            // Remove active class from all tabs
+            const tabs = document.getElementsByClassName('tab');
+            for (let i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove('active');
+            }
+            
+            // Show the selected tab content
+            document.getElementById(tabId).classList.add('active');
+            
+            // Add active class to the clicked tab
+            const clickedTab = document.querySelector(`.tab[onclick="openTab('${tabId}')"]`);
+            clickedTab.classList.add('active');
+        }
+        
+        function printJobDescription(tabId) {
+            // Add print-target class to the selected tab
+            const tabContents = document.getElementsByClassName('tab-content');
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove('print-target');
+            }
+            
+            document.getElementById(tabId).classList.add('print-target');
+            
+            // Trigger print
+            window.print();
+        }
+    </script>
+</body>
+</html>
