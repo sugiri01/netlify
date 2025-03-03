@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMS/HR Administrator - Job Description</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-light: #eef2ff;
+            --secondary: #6b7280;
+            --success: #10b981;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f9fafb;
+            color: var(--gray-800);
+            line-height: 1.6;
+            padding: 2rem;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+        
+        .header {
+            background-color: var(--primary);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .company-logo {
+            margin-bottom: 1.5rem;
+            font-size: 3rem;
+        }
+        
+        .content {
+            padding: 2rem;
+        }
+        
+        .section {
+            margin-bottom: 2rem;
+        }
+        
+        .section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .section-title {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--gray-200);
+        }
+        
+        .section-title i {
+            margin-right: 0.75rem;
+            width: 30px;
+            text-align: center;
+        }
+        
+        .section-content {
+            padding-left: 2.5rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        ul, ol {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .highlight {
+            background-color: var(--primary-light);
+            color: var(--primary);
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-weight: 500;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .card {
+            background-color: var(--gray-100);
+            border-radius: 0.375rem;
+            padding: 1.25rem;
+        }
+        
+        .card-title {
+            display: flex;
+            align-items: center;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--gray-900);
+        }
+        
+        .card-title i {
+            margin-right: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .tag {
+            display: inline-block;
+            background-color: var(--gray-200);
+            color: var(--gray-700);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer {
+            background-color: var(--gray-100);
+            padding: 1.5rem 2rem;
+            text-align: center;
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            border-top: 1px solid var(--gray-200);
+        }
+        
+        .apply-section {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+        
+        .btn:hover {
+            background-color: #4338ca;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-item i {
+            margin-right: 0.5rem;
+            color: var(--primary);
+        }
+        
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="company-logo">
+                <i class="fas fa-graduation-cap"></i>
+            </div>
+            <h1>LMS & HR Administrator</h1>
+            <p>Full-time position for managing learning and human resources systems</p>
+        </header>
+        
+        <div class="content">
+            <section class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-info-circle"></i>
+                    Overview
+                </h2>
+                <div class="section-content">
+                    <p>We are seeking a detail-oriented and organized LMS & HR Administrator to join our team. The ideal candidate will have experience in both Learning Management Systems (LMS) and Human Resources administration, with a strong ability to manage multiple tasks and projects simultaneously. This role serves as a critical bridge between our HR department and training initiatives, ensuring efficient management of employee data, training programs, and organizational development.</p>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-tasks"></i>
+                    Key Responsibilities
+                </h2>
+                <div class="section-content">
+                    <div class="grid">
+                        <div class="card">
+                            <h3 class="card-title">
+                                <i class="fas fa-users"></i>
+                                HR Administration
+                            </h3>
+                            <ul>
+                                <li>Manage employee records, including hiring documentation, attendance, and leave management</li>
+                                <li>Support the recruitment process by coordinating job listings, applications, and interviews</li>
+                                <li>Process payroll and maintain confidential HR documentation</li>
+                                <li>Ensure compliance with company policies and employment regulations</li>
+                                <li>Organize employee performance reviews and maintain performance management data</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="card">
+                            <h3 class="card-title">
+                                <i class="fas fa-graduation-cap"></i>
+                                LMS Administration
+                            </h3>
+                            <ul>
+                                <li>Handle the day-to-day administration of the company's learning management system</li>
+                                <li>Manage course content, create and maintain course catalogs, and set up learning paths</li>
+                                <li>Organize batches, manage course libraries, and track training completion rates</li>
+                                <li>Coordinate online events, webinars, and domain expert seminars</li>
+                                <li>Generate training reports and analyze learning metrics for management review</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <h3 style="margin-top: 1rem; margin-bottom: 0.75rem;">Additional Duties:</h3>
+                    <ul>
+                        <li>Manage document organization systems for both HR and training materials</li>
+                        <li>Maintain confidentiality of sensitive employee and company information</li>
+                        <li>Coordinate employee recognition programs like "Hack Bees" and "Batch Topers Day"</li>
+                        <li>Assist with planning and executing job fairs and placement initiatives</li>
+                        <li>Collect payments and handle administrative duties related to training programs</li>
+                        <li>Coordinate weekly meetings and assist with meeting documentation</li>
+                        <li>Handle petty cash and related administrative expenses</li>
+                        <li>Provide policy management support and ensure proper implementation</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-calendar-check"></i>
+                    Weekly Schedule & Time Commitment
+                </h2>
+                <div class="section-content">
+                    <ul>
+                        <li><strong>Weekly HR Meeting:</strong> Saturday 1:30 - 2:00 PM (30 minutes)</li>
+                        <li><strong>Domain Experts Seminar (Online):</strong> Saturday 2:00 - 2:30 PM (30 minutes)</li>
+                        <li><strong>LMS Batch Management:</strong> Ongoing throughout the week</li>
+                        <li><strong>Special Events:</strong> Job fairs, awards ceremonies, and recognition days as scheduled</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-user-check"></i>
+                    Qualifications & Skills
+                </h2>
+                <div class="section-content">
+                    <div class="grid">
+                        <div>
+                            <h3 style="margin-bottom: 0.75rem;">Required Qualifications:</h3>
+                            <ul>
+                                <li>Bachelor's degree in Human Resources, Business Administration, or related field</li>
+                                <li>Minimum 2 years of experience in HR administration</li>
+                                <li>Experience with learning management systems and e-learning platforms</li>
+                                <li>Strong organizational and multitasking abilities</li>
+                                <li>Excellent attention to detail and record-keeping skills</li>
+                                <li>Proficiency in Microsoft Office Suite (Word, Excel, PowerPoint)</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h3 style="margin-bottom: 0.75rem;">Desired Skills:</h3>
+                            <ul>
+                                <li>Knowledge of HR best practices and employment regulations</li>
+                                <li>Experience with HRIS and payroll systems</li>
+                                <li>Familiarity with e-learning content development</li>
+                                <li>Strong written and verbal communication skills</li>
+                                <li>Problem-solving abilities and initiative</li>
+                                <li>Event coordination experience</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 1.5rem;">
+                        <h3 style="margin-bottom: 0.75rem;">Technical Skills & Systems:</h3>
+                        <div>
+                            <span class="tag">HRIS Systems</span>
+                            <span class="tag">LMS Platforms</span>
+                            <span class="tag">MS Office</span>
+                            <span class="tag">Database Management</span>
+                            <span class="tag">Document Management</span>
+                            <span class="tag">Basic Web Administration</span>
+                            <span class="tag">Reporting Tools</span>
+                            <span class="tag">Video Conferencing</span>
+                            <span class="tag">Project Management</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-file-alt"></i>
+                    Documentation & Systems
+                </h2>
+                <div class="section-content">
+                    <p>The LMS & HR Administrator will work with the following documentation and systems:</p>
+                    <ul>
+                        <li><strong>HR Documents:</strong> Hiring books, employee databases, JDs, attendance records, leave management, performance reviews</li>
+                        <li><strong>Company Documentation:</strong> Policy documents, employee handbooks, training materials</li>
+                        <li><strong>LMS Resources:</strong> Course catalogs, training modules, certification tracking</li>
+                        <li><strong>Event Management:</strong> Schedules, attendee lists, feedback forms, certificates</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-chart-line"></i>
+                    Performance Metrics
+                </h2>
+                <div class="section-content">
+                    <p>Success in this role will be measured by:</p>
+                    <ul>
+                        <li>Accuracy and timeliness of HR record management</li>
+                        <li>Employee satisfaction with HR services and responsiveness</li>
+                        <li>Successful implementation and administration of training programs</li>
+                        <li>Training completion rates and effectiveness metrics</li>
+                        <li>Efficiency of documentation management systems</li>
+                        <li>Successful execution of events and meetings</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <div class="apply-section">
+                <a href="#" class="btn">Apply for this Position</a>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>hr@company.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+1 (555) 123-4567</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="footer">
+            <p>We are an equal opportunity employer and value diversity at our company. We do not discriminate on the basis of race, religion, color, national origin, gender, sexual orientation, age, marital status, veteran status, or disability status.</p>
+        </footer>
+    </div>
+</body>
+</html>
