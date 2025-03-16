@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frontal Designs - Technology Partnership Proposal</title>
+  <style>
+    :root {
+      --background: #ffffff;
+      --foreground: #27265F;
+      --primary: #F26522;
+      --primary-foreground: #ffffff;
+      --secondary: #f5f5f5;
+      --secondary-foreground: #27265F;
+      --accent: #FFF0E8;
+      --border: #e5e5e5;
+      --ring: #F26522;
+      --radius: 0.5rem;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: #f5f7fa;
+      color: var(--foreground);
+      line-height: 1.6;
+    }
+    
+    .text-center {
+      text-align: center;
+    }
+    
+    .mb-4 {
+      margin-bottom: 1.5rem;
+    }
+
+    .app-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.5rem;
+    }
+
+    .tabs {
+      background-color: var(--background);
+      border-radius: var(--radius);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .tabs-header {
+      display: flex;
+      background-color: #f9fafb;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tab-button {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 1.5rem;
+      background-color: transparent;
+      border: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: #6b7280;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .tab-button:hover {
+      color: var(--primary);
+      background-color: #f0f9ff;
+    }
+
+    .tab-button.active {
+      color: var(--primary);
+      border-bottom: 2px solid var(--primary);
+      background-color: #f0f9ff;
+    }
+
+    .card {
+      padding: 0;
+    }
+
+    .card-header {
+      padding: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .card-header.with-border {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .card-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #111827;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-subtitle {
+      color: #6b7280;
+      font-size: 0.9rem;
+    }
+
+    .company-info {
+      text-align: right;
+    }
+
+    .company-name {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #111827;
+    }
+
+    .company-subtitle {
+      color: #6b7280;
+      font-size: 0.9rem;
+    }
+
+    .card-content {
+      padding: 1.5rem;
+    }
+
+    .letter-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .date-display {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+      color: #6b7280;
+    }
+
+    .address {
+      margin-bottom: 1.5rem;
+    }
+
+    .address-name {
+      font-weight: 600;
+    }
+
+    .letter-body {
+      margin-bottom: 2rem;
+    }
+
+    .salutation {
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+
+    .service-list {
+      list-style: none;
+      margin: 1.5rem 0;
+    }
+
+    .service-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .check-icon {
+      color: var(--primary);
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+
+    .signature {
+      margin-top: 2rem;
+    }
+
+    .signatory {
+      font-weight: 600;
+      margin: 0.5rem 0;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: flex-end;
+      padding: 1.5rem;
+      gap: 1rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .primary-button {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.2rem;
+      background-color: var(--primary);
+      color: var(--primary-foreground);
+      border: none;
+      border-radius: var(--radius);
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .primary-button:hover {
+      background-color: #0060df;
+    }
+
+    .primary-button:disabled {
+      background-color: #9ca3af;
+      cursor: not-allowed;
+    }
+
+    .secondary-button {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.2rem;
+      background-color: white;
+      color: #374151;
+      border: 1px solid #d1d5db;
+      border-radius: var(--radius);
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .secondary-button:hover {
+      background-color: #f9fafb;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #111827;
+    }
+
+    .section-icon {
+      color: var(--primary);
+    }
+
+    .section-description {
+      color: #6b7280;
+      margin-bottom: 1.5rem;
+      max-width: 800px;
+    }
+
+    .config-category {
+      margin-bottom: 2rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .category-title {
+      padding: 1rem;
+      background-color: #f9fafb;
+      border-bottom: 1px solid var(--border);
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    .item-list {
+      padding: 0.5rem;
+    }
+
+    .config-item {
+      display: flex;
+      padding: 1rem;
+      border-radius: var(--radius);
+      margin-bottom: 0.5rem;
+      transition: background-color 0.2s;
+      cursor: pointer;
+    }
+
+    .config-item:hover {
+      background-color: #f9fafb;
+    }
+
+    .config-item.selected {
+      background-color: var(--accent);
+    }
+
+    .checkbox {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border: 2px solid #d1d5db;
+      border-radius: 50%;
+      margin-right: 1rem;
+      flex-shrink: 0;
+    }
+
+    .config-item.selected .checkbox {
+      border-color: var(--primary);
+      background-color: var(--primary);
+    }
+
+    .item-details {
+      flex: 1;
+    }
+
+    .item-name {
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+    }
+
+    .item-description {
+      color: #6b7280;
+      font-size: 0.9rem;
+    }
+
+    .notes-box {
+      background-color: #f9fafb;
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .notes-title {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .alert-icon {
+      color: #f59e0b;
+    }
+
+    .notes-list {
+      list-style: none;
+    }
+
+    .notes-list li {
+      margin-bottom: 0.5rem;
+      color: #4b5563;
+    }
+
+    .success-message {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #10b981;
+    }
+
+    .success-icon {
+      color: #10b981;
+    }
+
+    .mt-4 {
+      margin-top: 1.5rem;
+    }
+
+    .explanation-box {
+      background-color: #FFF0E8;
+      border-left: 4px solid var(--primary);
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+
+    .explanation-title {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #27265F;
+    }
+
+    .code-block {
+      background-color: #111827;
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      overflow: auto;
+    }
+
+    .code-block pre {
+      color: #f9fafb;
+      font-size: 0.85rem;
+      line-height: 1.5;
+      font-family: monospace;
+    }
+
+    /* Form specific styles */
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background-color: white;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .form-input:focus {
+      border-color: var(--ring);
+      box-shadow: 0 0 0 2px rgba(0, 112, 243, 0.1);
+      outline: none;
+    }
+
+    .cost-tabs {
+      margin-bottom: 1.5rem;
+    }
+
+    .cost-tabs-header {
+      display: flex;
+      overflow-x: auto;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 1.5rem;
+    }
+
+    .cost-tab-button {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1rem;
+      white-space: nowrap;
+      background-color: transparent;
+      border: none;
+      font-size: 0.9rem;
+      color: #6b7280;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .cost-tab-button:hover {
+      color: var(--primary);
+    }
+
+    .cost-tab-button.active {
+      color: var(--primary);
+      border-bottom: 2px solid var(--primary);
+    }
+
+    .icon {
+      width: 18px;
+      height: 18px;
+    }
+    
+    /* Control size of section icons */
+    .section-icon {
+      width: 24px;
+      height: 24px;
+    }
+    
+    /* Control size of large feature icons */
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      max-width: 100%;
+      margin: 0 auto 20px auto;
+      display: block;
+    }
+    
+    /* Control size of alert/notification icons */
+    .alert-icon {
+      width: 24px;
+      height: 24px;
+      color: #f59e0b;
+    }
+
+    .selection-summary {
+      background-color: #f9fafb;
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .summary-title {
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .selected-items {
+      margin-top: 1rem;
+    }
+
+    .selected-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0;
+    }
+
+    .selected-category {
+      font-weight: 600;
+      margin-top: 0.75rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .tab-pane {
+      display: block;
+    }
+
+    .tab-pane:not(.active) {
+      display: none;
+    }
+    
+    /* Notification styles */
+    .notification {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 15px 20px;
+      background-color: #10b981;
+      color: white;
+      border-radius: var(--radius);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .notification.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    
+    .notification.error {
+      background-color: #ef4444;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <div class="tabs">
+      <div class="tabs-header">
+        <button class="tab-button active" id="cover-letter-tab">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+          Cover Letter
+        </button>
+        <button class="tab-button" id="service-proposal-tab">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+          </svg>
+          Service Proposal
+        </button>
+        <button class="tab-button" id="configure-tab">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+          Configure Services
+        </button>
+      </div>
+
+      <!-- Cover Letter Tab Content -->
+      <div class="tab-content" id="cover-letter-content">
+        <div class="card">
+          <div class="card-header">
+            <div class="header-content">
+              <div>
+                <h2 class="card-title">Technology Partnership Proposal</h2>
+                <p class="card-subtitle">Prepared for Your Business</p>
+              </div>
+              <div class="company-info">
+                <img src="g3.png" alt="Frontal Designs" style="height: 50px; margin-bottom: 8px;">
+                <p class="company-subtitle">Technology Solutions Partner</p>
+              </div>
+            </div>
+          </div>
+          <div class="card-content">
+            <div class="letter-content">
+              <div class="date-display">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                <span id="current-date">March 16, 2025</span>
+              </div>
+
+              
+              <div class="letter-body">
+                <p class="salutation">Dear Padma,</p>
+
+                <p>
+                  We are pleased to submit our proposal for a comprehensive technology partnership between Frontal Designs and your business. This document outlines our proposed services to support your technology requirements.
+                </p>
+
+                <p>
+                  Frontal Designs specializes in creating seamless digital experiences through innovative web, mobile, and cloud solutions. Our team of experienced designers, developers, and technology consultants will work closely with your team to deliver high-quality, scalable technology solutions tailored to your specific requirements.
+                </p>
+
+                <p>
+                  Based on our understanding of your needs, we have prepared a detailed service proposal that covers the following areas:
+                </p>
+
+                <ul class="service-list">
+                  <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                      <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    <span>Website creation with responsive design and content management</span>
+                  </li>
+                  <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                      <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    <span>Web application development with secure authentication</span>
+                  </li>
+                  <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                      <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    <span>Integration services including payment gateways and third-party systems</span>
+                  </li>
+                  <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                      <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    <span>Branding and social media presence development</span>
+                  </li>
+                  <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                      <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    <span>Hosting, storage, and ongoing maintenance</span>
+                  </li>
+                  <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                      <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    <span>Mobile application development for Android and iOS platforms</span>
+                  </li>
+                </ul>
+
+                <p>
+                  Our proposal is designed to provide you with a clear understanding of what services are available to build your digital ecosystem. We are committed to delivering exceptional value and results that exceed your expectations.
+                </p>
+
+                <p>
+                  We look forward to the opportunity to partner with your business and contribute to your digital success.
+                </p>
+
+                <div class="signature">
+                  <p>Sincerely,</p>
+                  <img src="g3.png" alt="Frontal Designs" style="height: 40px; margin: 10px 0;">
+                  <p>Technology Solutions Partner</p>
+                  <p>sugiri@frontaldesigns.com</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <button class="secondary-button" id="back-to-cover-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+              </svg>
+              Back to Cover Letter
+            </button>
+            <button class="primary-button" id="to-configure-btn">
+              Configure Your Services
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service Proposal Tab Content -->
+      <div class="tab-content" id="service-proposal-content" style="display: none;">
+        <div class="card">
+          <div class="card-header with-border">
+            <div class="header-content">
+              <div>
+                <h2 class="card-title">Technology Partner Service Proposal</h2>
+                <p class="card-subtitle">Available services for your project</p>
+              </div>
+            </div>
+          </div>
+          <div class="card-content">
+            <div class="explanation-box">
+              <h4 class="explanation-title">About This Proposal</h4>
+              <p>This section provides a detailed overview of all services we offer. Each category contains specific services that can be included in your custom technology package. In the "Configure Services" tab, you'll be able to select exactly which services you need.</p>
+            </div>
+            
+            <div class="cost-tabs">
+              <div class="cost-tabs-header">
+                <button class="cost-tab-button active" data-tab="website">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="3" y1="9" x2="21" y2="9"></line>
+                    <line x1="9" y1="21" x2="9" y2="9"></line>
+                  </svg>
+                  Website
+                </button>
+                <button class="cost-tab-button" data-tab="webapp">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                  </svg>
+                  Web App
+                </button>
+                <button class="cost-tab-button" data-tab="integrations">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                    <line x1="1" y1="10" x2="23" y2="10"></line>
+                  </svg>
+                  Integrations
+                </button>
+                <button class="cost-tab-button" data-tab="branding">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+                  </svg>
+                  Branding
+                </button>
+                <button class="cost-tab-button" data-tab="maintenance">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="22" y1="12" x2="2" y2="12"></line>
+                    <path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path>
+                    <line x1="6" y1="16" x2="6.01" y2="16"></line>
+                    <line x1="10" y1="16" x2="10.01" y2="16"></line>
+                  </svg>
+                  Maintenance
+                </button>
+                <button class="cost-tab-button" data-tab="mobile">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                    <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                  </svg>
+                  Mobile Apps
+                </button>
+              </div>
+
+              <div class="cost-tab-content">
+                <!-- Website Tab -->
+                <div class="tab-pane active" id="website-tab">
+                  <h3 class="section-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="section-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                      <line x1="3" y1="9" x2="21" y2="9"></line>
+                      <line x1="9" y1="21" x2="9" y2="9"></line>
+                    </svg>
+                    Website Development
+                  </h3>
+                  <p class="section-description">
+                    Professional, responsive website designed to showcase your business expertise and services.
+                  </p>
+                  
+                  <div class="explanation-box">
+                    <h4 class="explanation-title">What's Included</h4>
+                    <p>Our website development package provides everything needed for a professional online presence, from initial design to launch. We create responsive websites that work seamlessly across all devices and browsers.</p>
+                  </div>
+
+                  <ul class="notes-list">
+                    <li>• <strong>UI/UX Design:</strong> Custom design system with responsive layouts for all devices</li>
+                    <li>• <strong>Frontend Development:</strong> React-based interface with optimized performance</li>
+                    <li>• <strong>CMS Integration:</strong> Headless content management system for easy updates</li>
+                    <li>• <strong>Admin Dashboard:</strong> Administrative control panel to manage content</li>
+                    <li>• <strong>SEO Optimization:</strong> Technical SEO implementation & structure</li>
+                    <li>• <strong>Analytics Setup:</strong> User behavior tracking implementation</li>
+                  </ul>
+
+                  <div class="notes-box">
+                    <h4 class="notes-title">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                      </svg>
+                      Notes
+                    </h4>
+                    <ul class="notes-list">
+                      <li>• Website will be built with modern frameworks for optimal performance</li>
+                      <li>• Includes responsive design for all devices and screen sizes</li>
+                      <li>• CMS allows for easy content updates without technical assistance</li>
+                      <li>• Estimated timeline: 8-10 weeks from project initiation</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Web App Tab -->
+                <div class="tab-pane" id="webapp-tab" style="display: none">
+                  <h3 class="section-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="16 18 22 12 16 6"></polyline>
+                      <polyline points="8 6 2 12 8 18"></polyline>
+                    </svg>
+                    Web Application Development
+                  </h3>
+                  <p class="section-description">
+                    Custom web application providing tools and client portal functionality
+                  </p>
+
+                  <div class="explanation-box">
+                    <h4 class="explanation-title">What's Included</h4>
+                    <p>Our web application development services create custom, feature-rich applications tailored to your specific business needs. We focus on security, scalability, and user experience.</p>
+                  </div>
+
+                  <ul class="notes-list">
+                    <li>• <strong>System Architecture:</strong> Scalable application architecture design</li>
+                    <li>• <strong>User Authentication:</strong> Secure multi-factor authentication system</li>
+                    <li>• <strong>Core Functionality:</strong> Primary application features & workflows</li>
+                    <li>• <strong>Database Design:</strong> Optimized data structure & relationships</li>
+                    <li>• <strong>API Development:</strong> RESTful or GraphQL service endpoints</li>
+                    <li>• <strong>Testing & QA:</strong> Comprehensive quality assurance</li>
+                  </ul>
+
+                  <div class="notes-box">
+                    <h4 class="notes-title">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                      </svg>
+                      Notes
+                    </h4>
+                    <ul class="notes-list">
+                      <li>• Application will support multiple user roles (admin, staff, clients)</li>
+                      <li>• Secure authentication with industry-standard protection</li>
+                      <li>• Optimized for performance with large data sets</li>
+                      <li>• Estimated timeline: 14-16 weeks from project initiation</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Integrations Tab -->
+                <div class="tab-pane" id="integrations-tab" style="display: none">
+                  <h3 class="section-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                      <line x1="1" y1="10" x2="23" y2="10"></line>
+                    </svg>
+                    Integration Services
+                  </h3>
+                  <p class="section-description">
+                    Third-party service integrations to enhance platform functionality
+                  </p>
+
+                  <div class="explanation-box">
+                    <h4 class="explanation-title">What's Included</h4>
+                    <p>Our integration services connect your digital platforms with third-party services and APIs to extend functionality and streamline operations. We ensure secure, reliable connections between systems.</p>
+                  </div>
+
+                  <ul class="notes-list">
+                    <li>• <strong>Payment Gateway:</strong> Razorpay/Stripe/PayU integration</li>
+                    <li>• <strong>Email Service:</strong> Transactional & marketing email setup</li>
+                    <li>• <strong>SMS Gateway:</strong> Mobile SMS notification system</li>
+                    <li>• <strong>Social Login:</strong> OAuth integration with major platforms</li>
+                    <li>• <strong>Analytics:</strong> Google Analytics/Mixpanel integration</li>
+                  </ul>
+
+                  <div class="notes-box">
+                    <h4 class="notes-title">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                      </svg>
+                      Notes
+                    </h4>
+                    <ul class="notes-list">
+                      <li>• All integrations include secure API connections</li>
+                      <li>• Transaction fees from payment providers are not included</li>
+                      <li>• Custom integrations available upon request</li>
+                      <li>• Estimated timeline: 4-6 weeks (concurrent with main development)</li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <!-- Branding Tab -->
+                <div class="tab-pane" id="branding-tab" style="display: none">
+                  <h3 class="section-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+                    </svg>
+                    Branding & Social Media
+                  </h3>
+                  <p class="section-description">
+                    Comprehensive branding and digital presence development
+                  </p>
+
+                  <div class="explanation-box">
+                    <h4 class="explanation-title">What's Included</h4>
+                    <p>Our branding services help establish or refresh your brand identity across all digital touchpoints. We create cohesive visual and messaging systems to strengthen your market position.</p>
+                  </div>
+
+                  <ul class="notes-list">
+                    <li>• <strong>Brand Identity:</strong> Logo, color palette, typography, guidelines</li>
+                    <li>• <strong>Social Media Setup:</strong> Profile creation & optimization</li>
+                    <li>• <strong>Content Strategy:</strong> Initial content planning & creation</li>
+                    <li>• <strong>Marketing Materials:</strong> Digital assets for campaigns</li>
+                  </ul>
+
+                  <div class="notes-box">
+                    <h4 class="notes-title">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                      </svg>
+                      Notes
+                    </h4>
+                    <ul class="notes-list">
+                      <li>• Includes complete brand identity package with usage guidelines</li>
+                      <li>• Social media setup covers major platforms relevant to your audience</li>
+                      <li>• Initial content creation for first 30 days included</li>
+                      <li>• Estimated timeline: 6-8 weeks</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Maintenance Tab -->
+                <div class="tab-pane" id="maintenance-tab" style="display: none">
+                  <h3 class="section-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="22" y1="12" x2="2" y2="12"></line>
+                      <path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path>
+                      <line x1="6" y1="16" x2="6.01" y2="16"></line>
+                      <line x1="10" y1="16" x2="10.01" y2="16"></line>
+                    </svg>
+                    Hosting & Maintenance
+                  </h3>
+                  <p class="section-description">
+                    Ongoing infrastructure, hosting, and technical support services
+                  </p>
+
+                  <div class="explanation-box">
+                    <h4 class="explanation-title">What's Included</h4>
+                    <p>Our hosting and maintenance services ensure your digital platforms remain secure, up-to-date, and running optimally. We provide proactive monitoring and regular updates to prevent issues.</p>
+                  </div>
+
+                  <ul class="notes-list">
+                    <li>• <strong>Cloud Hosting (Annual):</strong> AWS/Azure infrastructure</li>
+                    <li>• <strong>Storage (Annual):</strong> Database and file storage</li>
+                    <li>• <strong>CDN (Annual):</strong> Content delivery network</li>
+                    <li>• <strong>Technical Support:</strong> Regular updates & bug fixes (monthly)</li>
+                    <li>• <strong>Security Monitoring:</strong> Vulnerability scanning (annual)</li>
+                  </ul>
+
+                  <div class="notes-box">
+                    <h4 class="notes-title">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                      </svg>
+                      Notes
+                    </h4>
+                    <ul class="notes-list">
+                      <li>• Hosting on enterprise-grade infrastructure with 99.9% uptime SLA</li>
+                      <li>• Includes regular backups and disaster recovery</li>
+                      <li>• Technical support available during business hours</li>
+                      <li>• Security updates and monitoring included</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Mobile Tab -->
+                <div class="tab-pane" id="mobile-tab" style="display: none">
+                  <h3 class="section-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                      <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                    </svg>
+                    Mobile Applications
+                  </h3>
+                  <p class="section-description">
+                    Native mobile applications for Android and iOS platforms
+                  </p>
+
+                  <div class="explanation-box">
+                    <h4 class="explanation-title">What's Included</h4>
+                    <p>Our mobile application development services create native apps for iOS and Android platforms, ensuring optimal performance and user experience. We focus on intuitive interfaces and platform-specific optimizations.</p>
+                  </div>
+
+                  <ul class="notes-list">
+                    <li>• <strong>App Architecture:</strong> Cross-platform framework setup</li>
+                    <li>• <strong>UI/UX Design:</strong> Platform-specific design guidelines</li>
+                    <li>• <strong>Android Development:</strong> Native Android implementation</li>
+                    <li>• <strong>iOS Development:</strong> Native iOS implementation</li>
+                    <li>• <strong>Backend Integration:</strong> API connections & offline functionality</li>
+                    <li>• <strong>App Store Deployment:</strong> Submission & approval process</li>
+                  </ul>
+
+                  <div class="notes-box">
+                    <h4 class="notes-title">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                      </svg>
+                      Notes
+                    </h4>
+                    <ul class="notes-list">
+                      <li>• Applications will provide core functionality from the web platform</li>
+                      <li>• Push notification system included for client engagement</li>
+                      <li>• App store fees not included (annual developer accounts)</li>
+                      <li>• Estimated timeline: 12-16 weeks from project initiation</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <button class="primary-button" id="view-proposal-btn">
+              Configure Your Services
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Configure Services Tab Content -->
+      <div class="tab-content" id="configure-content" style="display: none;">
+        <div class="card">
+          <div class="card-header with-border">
+            <div class="header-content">
+              <div>
+                <h2 class="card-title">Configure Your Technology Package</h2>
+                <p class="card-subtitle">Select the services you need for your project</p>
+              </div>
+            </div>
+          </div>
+          <div class="card-content">
+            <div class="explanation-box">
+              <h4 class="explanation-title">Service Selection</h4>
+              <p>Click on the services you want to include in your technology package. Our team will review your selections and provide a detailed cost estimate based on your specific requirements.</p>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label" for="client-name">Company Name</label>
+              <input type="text" id="client-name" class="form-input" placeholder="Enter your company name">
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label" for="client-email">Email Address</label>
+              <input type="email" id="client-email" class="form-input" placeholder="Enter your email address">
+            </div>
+            
+            <!-- Website Services -->
+            <div class="config-category">
+              <h3 class="category-title">Website Development</h3>
+              <div class="item-list">
+                <div class="config-item" data-category="website" data-item="UI/UX Design">
+                  <div class="checkbox"></div>
+                  <div class="item-details">
+                    <h4 class="item-name">UI/UX Design</h4>
+                    <p class="item-description">Custom design system with responsive layouts for all devices</p>
+                  </div>
+                </div>
+                <div class="config-item" data-category="website" data-item="Frontend Development">
+                  <div class="checkbox"></div>
+                  <div class="item-details">
+                    <h4 class="item-name">Frontend Development</h4>
+                    <p class="item-description">React-based interface with optimized performance</p>
+                  </div>
+                </div>
+                <div class="config-item" data-category="website" data-item="CMS Integration">
+                  <div class="checkbox"></div>
+                  <div class="item-details">
+                    <h4 class="item-name">CMS Integration</h4>
+                    <p class="item-description">Headless content management system for easy updates</p>
+                  </div>
+                </div>
+                <div class="config-item" data-category="website" data-item="SEO Optimization">
+                  <div class="checkbox"></div>
+                  <div class="item-details">
+                    <h4 class="item-name">SEO Optimization</h4>
+                    <p class="item-description">Technical SEO implementation & structure</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Web App Services -->
+            <div class="config-category">
+              <h3 class="category-title">Web Application</h3>
+              <div class="item-list">
+                <div class="config-item" data-category="webapp" data-item="User Authentication">
+                  <div class="checkbox"></div>
+                  <div class="item-details">
+                    <h4 class="item-name">User Authentication</h4>
+                    <p class="item-description">Secure multi-factor authentication system</p>
+                  </div>
+                </div>
+                <div class="config-item" data-category="webapp" data-item="Database Design">
+                  <div class="checkbox"></div>
+                  <div class="item-details">
+                    <h4 class="item-name">Database Design</h4>
+                    <p class="item-description">Optimized data structure & relationships</p>
+                  </div>
+                </div>
+                <div class="config-item" data-category="webapp" data-item="API Development">
+                  <div class="checkbox"></div>
+                  <div class="item-details">
+                    <h4 class="item-name">API Development</h4>
+                    <p class="item-description">RESTful or GraphQL service endpoints</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Integration Services -->
+            <div class="config-category">
+              <h3 class="category-title">Integration Services</h3>
+              <div class="item-list">
+                <div class="config-item" data-category="integrations" data-item="Payment Gateway">
+                  <div class="checkbox"></div>
+                  <div class="item-details">
+                    <h4 class="item-name">Payment Gateway</h4>
+                    <p class="item-description">Integrate payment processing capabilities</p>
+                  </div>
+                </div>
+                <div class="config-item" data-category="integrations" data-item="Email Service">
+                  <div class="checkbox"></div>
+                  <div class="item-details">
+                    <h4 class="item-name">Email Service</h4>
+                    <p class="item-description">Transactional & marketing email setup</p>
+                  </div>
+                </div>
+                <div class="config-item" data-category="integrations" data-item="Social Login">
+                  <div class="checkbox"></div>
+                  <div class="item-details">
+                    <h4 class="item-name">Social Login</h4>
+                    <p class="item-description">OAuth integration with major platforms</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Branding Services -->
+            <div class="config-category">
+              <h3 class="category-title">Branding & Social Media</h3>
+              <div class="item-list">
+                <div class="config-item" data-category="branding" data-item="Brand Identity">
+                  <div class="checkbox"></div>
+                  <div class="item-details">
+                    <h4 class="item-name">Brand Identity</h4>
+                    <p class="item-description">Logo, color palette, typography, guidelines</p>
+                  </div>
+                </div>
+                <div class="config-item" data-category="branding" data-item="Social Media Setup">
+                  <div class="checkbox"></div>
+                  <div class="item-details">
+                    <h4 class="item-name">Social Media Setup</h4>
+                    <p class="item-description">Profile creation & optimization</p>
+                  </div>
+                </div>
+                <div class="config-item" data-category="branding" data-item="Content Strategy">
+                  <div class="checkbox"></div>
+                  <div class="item-details">
+                    <h4 class="item-name">Content Strategy</h4>
+                    <p class="item-description">Initial content planning & creation</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Maintenance Services -->
+            <div class="config-category">
+              <h3 class="category-title">Hosting & Maintenance</h3>
+              <div class="item-list">
+                <div class="config-item" data-category="maintenance" data-item="Cloud Hosting">
+                  <div class="checkbox"></div>
+                  <div class="item-details">
+                    <h4 class="item-name">Cloud Hosting (Annual)</h4>
+                    <p class="item-description">AWS/Azure infrastructure</p>
+                  </div>
+                </div>
+                <div class="config-item" data-category="maintenance" data-item="Technical Support">
+                  <div class="checkbox"></div>
+                  <div class="item-details">
+                    <h4 class="item-name">Technical Support</h4>
+                    <p class="item-description">Regular updates & bug fixes (monthly)</p>
+                  </div>
+                </div>
+                <div class="config-item" data-category="maintenance" data-item="Security Monitoring">
+                  <div class="checkbox"></div>
+                  <div class="item-details">
+                    <h4 class="item-name">Security Monitoring</h4>
+                    <p class="item-description">Vulnerability scanning (annual)</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Mobile Services -->
+            <div class="config-category">
+              <h3 class="category-title">Mobile Applications</h3>
+              <div class="item-list">
+                <div class="config-item" data-category="mobile" data-item="Android Development">
+                  <div class="checkbox"></div>
+                  <div class="item-details">
+                    <h4 class="item-name">Android Development</h4>
+                    <p class="item-description">Native Android implementation</p>
+                  </div>
+                </div>
+                <div class="config-item" data-category="mobile" data-item="iOS Development">
+                  <div class="checkbox"></div>
+                  <div class="item-details">
+                    <h4 class="item-name">iOS Development</h4>
+                    <p class="item-description">Native iOS implementation</p>
+                  </div>
+                </div>
+                <div class="config-item" data-category="mobile" data-item="App Store Deployment">
+                  <div class="checkbox"></div>
+                  <div class="item-details">
+                    <h4 class="item-name">App Store Deployment</h4>
+                    <p class="item-description">Submission & approval process</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="selection-summary">
+              <h3 class="summary-title">Your Selected Services</h3>
+              <div id="selected-items" class="selected-items">
+                <p>No services selected yet. Click on services above to add them to your package.</p>
+              </div>
+            </div>
+            
+            <div class="notes-box">
+              <h4 class="notes-title">
+                <svg xmlns="http://www.w3.org/2000/svg" class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="8" x2="12" y2="12"></line>
+                  <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+                Firebase Integration
+              </h4>
+              <p>This form is integrated with Firebase to store your service selections securely. Your data will be used to prepare a customized service proposal.</p>
+            </div>
+          </div>
+          <div class="card-footer">
+            <button class="primary-button" id="submit-config-btn">
+              Submit Configuration
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Notification Element -->
+  <div class="notification" id="notification">
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+      <polyline points="22 4 12 14.01 9 11.01"></polyline>
+    </svg>
+    <span id="notification-message">Configuration submitted successfully!</span>
+  </div>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  
+  <script>
+    // JavaScript to handle tab switching
+    document.addEventListener('DOMContentLoaded', function() {
+      // Tab switching functionality
+      const tabButtons = document.querySelectorAll('.tab-button');
+      const tabContents = document.querySelectorAll('.tab-content');
+      
+      tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          // Remove active class from all buttons
+          tabButtons.forEach(btn => btn.classList.remove('active'));
+          
+          // Add active class to clicked button
+          button.classList.add('active');
+          
+          // Hide all tab contents
+          tabContents.forEach(content => content.style.display = 'none');
+          
+          // Show the corresponding tab content
+          const tabId = button.id;
+          const contentId = tabId.replace('-tab', '-content');
+          document.getElementById(contentId).style.display = 'block';
+        });
+      });
+      
+      // Cost tab switching functionality
+      const costTabButtons = document.querySelectorAll('.cost-tab-button');
+      const costTabPanes = document.querySelectorAll('.tab-pane');
+      
+      costTabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          // Remove active class from all buttons
+          costTabButtons.forEach(btn => btn.classList.remove('active'));
+          
+          // Add active class to clicked button
+          button.classList.add('active');
+          
+          // Hide all tab panes
+          costTabPanes.forEach(pane => pane.style.display = 'none');
+          
+          // Show the corresponding tab pane
+          const tabId = button.getAttribute('data-tab');
+          document.getElementById(tabId + '-tab').style.display = 'block';
+        });
+      });
+      
+      // Service configuration selection
+      const configItems = document.querySelectorAll('.config-item');
+      const selectedItemsContainer = document.getElementById('selected-items');
+      
+      configItems.forEach(item => {
+        item.addEventListener('click', () => {
+          item.classList.toggle('selected');
+          updateSelectedItems();
+        });
+      });
+      
+      function updateSelectedItems() {
+        const selectedItems = document.querySelectorAll('.config-item.selected');
+        
+        if (selectedItems.length === 0) {
+          selectedItemsContainer.innerHTML = '<p>No services selected yet. Click on services above to add them to your package.</p>';
+          return;
+        }
+        
+        // Group by category
+        const categorizedItems = {};
+        
+        selectedItems.forEach(item => {
+          const category = item.getAttribute('data-category');
+          const itemName = item.getAttribute('data-item');
+          
+          if (!categorizedItems[category]) {
+            categorizedItems[category] = [];
+          }
+          
+          categorizedItems[category].push(itemName);
+        });
+        
+        // Build HTML
+        let html = '';
+        
+        for (const category in categorizedItems) {
+          let formattedCategory = category.charAt(0).toUpperCase() + category.slice(1);
+          
+          if (category === 'webapp') formattedCategory = 'Web Application';
+          
+          html += `<div class="selected-category">${formattedCategory}</div>`;
+          
+          categorizedItems[category].forEach(item => {
+            html += `
+              <div class="selected-item">
+                <svg xmlns="http://www.w3.org/2000/svg" class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+                <span>${item}</span>
+              </div>
+            `;
+          });
+        }
+        
+        selectedItemsContainer.innerHTML = html;
+      }
+      
+      // Navigation buttons
+      const toCoverButton = document.getElementById('back-to-cover-btn');
+      const toConfigureButton = document.getElementById('to-configure-btn');
+      const viewProposalButton = document.getElementById('view-proposal-btn');
+      
+      if (toCoverButton) {
+        toCoverButton.addEventListener('click', () => {
+          document.getElementById('cover-letter-tab').click();
+        });
+      }
+      
+      if (toConfigureButton) {
+        toConfigureButton.addEventListener('click', () => {
+          document.getElementById('configure-tab').click();
+        });
+      }
+      
+      if (viewProposalButton) {
+        viewProposalButton.addEventListener('click', () => {
+          document.getElementById('configure-tab').click();
+        });
+      }
+      
+      // Set current date
+      const currentDateElement = document.getElementById('current-date');
+      if (currentDateElement) {
+        const today = new Date();
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        currentDateElement.textContent = today.toLocaleDateString('en-US', options);
+      }
+      
+      // Firebase initialization and form submission
+      // Initialize Firebase
+      const firebaseConfig = {
+        apiKey: "AIzaSyDfP6quLKobcIgG0uUkJnDseDCIE8VXJyc",
+        authDomain: "eda-tms.firebaseapp.com",
+        projectId: "eda-tms",
+        storageBucket: "eda-tms.firebasestorage.app",
+        messagingSenderId: "1094788045077",
+        appId: "1:1094788045077:web:b8e9720f7c9c343303f11c",
+        measurementId: "G-LS3FJWS9QJ"
+      };
+      
+      // Initialize Firebase
+      const app = firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+      
+      // Handle form submission
+      const submitConfigBtn = document.getElementById('submit-config-btn');
+      const notification = document.getElementById('notification');
+      const notificationMessage = document.getElementById('notification-message');
+      
+      submitConfigBtn.addEventListener('click', () => {
+        // Get form values
+        const clientName = document.getElementById('client-name').value;
+        const clientEmail = document.getElementById('client-email').value;
+        const selectedItems = document.querySelectorAll('.config-item.selected');
+        
+        // Basic validation
+        if (!clientName || !clientEmail) {
+          showNotification('Please enter your company name and email address', true);
+          return;
+        }
+        
+        if (selectedItems.length === 0) {
+          showNotification('Please select at least one service', true);
+          return;
+        }
+        
+        // Collect selected services
+        const selections = {};
+        selectedItems.forEach(item => {
+          const category = item.getAttribute('data-category');
+          const itemName = item.getAttribute('data-item');
+          
+          if (!selections[category]) {
+            selections[category] = [];
+          }
+          
+          selections[category].push(itemName);
+        });
+        
+        // Prepare data object for Firebase
+        const formData = {
+          clientName,
+          clientEmail,
+          selections,
+          submittedAt: new Date().toISOString()
+        };
+        
+        // Save to Firebase
+        submitConfigBtn.disabled = true;
+        submitConfigBtn.textContent = 'Submitting...';
+        
+        db.collection('service-proposals').add(formData)
+          .then((docRef) => {
+            console.log('Document written with ID: ', docRef.id);
+            showNotification('Your configuration has been submitted successfully!');
+            
+            // Reset form
+            document.getElementById('client-name').value = '';
+            document.getElementById('client-email').value = '';
+            selectedItems.forEach(item => item.classList.remove('selected'));
+            updateSelectedItems();
+          })
+          .catch((error) => {
+            console.error('Error adding document: ', error);
+            showNotification('Error submitting your configuration. Please try again.', true);
+          })
+          .finally(() => {
+            submitConfigBtn.disabled = false;
+            submitConfigBtn.innerHTML = `Submit Configuration
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>`;
+          });
+      });
+      
+      function showNotification(message, isError = false) {
+        notificationMessage.textContent = message;
+        
+        if (isError) {
+          notification.classList.add('error');
+        } else {
+          notification.classList.remove('error');
+        }
+        
+        notification.classList.add('show');
+        
+        // Hide notification after 3 seconds
+        setTimeout(() => {
+          notification.classList.remove('show');
+        }, 3000);
+      }
+    });
+  </script>
+</body>
+</html>
